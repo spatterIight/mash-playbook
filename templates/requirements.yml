@@ -137,7 +137,7 @@
   name: cleanup
   activation_prefix: system_cleanup_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-clickhouse.git
-  version: v26.9.1.1629-0
+  version: v26.9.2.8-0
   name: clickhouse
   activation_prefix: clickhouse_
 - src: git+https://iris.radicle.network/zp12kTQqmgqnFpUU6gPyVq19HNMD.git
@@ -417,7 +417,7 @@
   name: inspircd
   activation_prefix: inspircd_
 - src: git+https://github.com/spatterIight/ansible-role-jackett.git
-  version: v0.24.2644-1
+  version: v0.24.2668-0
   name: jackett
   activation_prefix: jackett_
 - src: git+https://github.com/spatterIight/ansible-role-jellyfin.git
@@ -601,7 +601,7 @@
   name: n8n
   activation_prefix: n8n_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-navidrome.git
-  version: v0.64.1-0
+  version: v0.64.2-0
   name: navidrome
   activation_prefix: navidrome_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-neko.git
@@ -613,7 +613,7 @@
   name: netbox
   activation_prefix: netbox_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-nextcloud.git
-  version: v35.0.0-1
+  version: v35.0.1-0
   name: nextcloud
   activation_prefix: nextcloud_
 - src: git+https://github.com/spatterIight/ansible-role-nginx.git
@@ -621,7 +621,7 @@
   name: nginx
   activation_prefix: nginx_
 - src: git+https://github.com/spatterIight/ansible-role-nifi.git
-  version: v2.11.0-0
+  version: v2.12.0-0
   name: nifi
   activation_prefix: nifi_
 - src: git+https://iris.radicle.network/z8vyzN3a8DmwhcUq3949SihKd1Wh.git
@@ -817,7 +817,7 @@
   name: radarr
   activation_prefix: radarr_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-radicale.git
-  version: v3.8.0.0-1
+  version: v3.8.1.0-0
   name: radicale
   activation_prefix: radicale_
 - src: git+https://iris.radicle.network/zopwjin5Vh5dMgdHWiifJ2cg3bQW.git
