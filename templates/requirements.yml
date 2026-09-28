@@ -720,6 +720,10 @@
   version: v0.9.0-2
   name: pinepods
   activation_prefix: pinepods_
+- src: git+https://github.com/spatterIight/ansible-role-piu-tracker.git
+  version: v1.0.0-0
+  name: piu_tracker
+  activation_prefix: piu_tracker_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-plausible.git
   version: v3.2.1-5
   name: plausible

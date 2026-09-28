@@ -214,6 +214,7 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Prometheus SSH Exporter](https://github.com/treydock/ssh_exporter) | SSH probes | [Link](services/prometheus-ssh-exporter.md) |
 | [Promtail](https://grafana.com/docs/loki/latest/send-data/promtail/) | Agent which ships the contents of local logs to a private [Grafana Loki](services/grafana-loki.md) instance | [Link](services/promtail.md) |
 | [PruneMate](https://github.com/anoniemerd/PruneMate) | Automatically clean up Docker resources on a schedule | [Link](services/prunemate.md) |
+| [pump-it-up-tracker](https://github.com/spatterIight/pump-it-up-tracker) | Read-only web app for personal [Pump It Up](https://www.piugame.com/) score tracking | [Link](services/piu-tracker.md) |
 | [qBittorrent](https://www.qbittorrent.org/) | A BitTorrent client | [Link](services/qbittorrent.md) |
 | [RabbitMQ](https://www.rabbitmq.com/) | Message-broker which supports AMQP, STOMP, MQTT, etc. | [Link](services/rabbitmq.md) |
 | [Radarr](https://radarr.video/) | A movie organizer/manager for Usenet and BitTorrent users | [Link](services/radarr.md) |

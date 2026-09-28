@@ -786,6 +786,10 @@
     - role: galaxy/pinepods
     # /role-specific:pinepods
 
+    # role-specific:piu_tracker
+    - role: galaxy/piu_tracker
+    # /role-specific:piu_tracker
+
     # role-specific:plausible
     - role: galaxy/plausible
     # /role-specific:plausible
