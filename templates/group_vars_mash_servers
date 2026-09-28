@@ -1043,6 +1043,11 @@ mash_playbook_devture_systemd_service_manager_services_list_auto_itemized:
     {{ ({'name': (pinepods_identifier + '.service'), 'priority': 2000, 'restart_necessary': (pinepods_restart_necessary | bool), 'groups': ['mash', 'pinepods']} if pinepods_enabled else omit) }}
   # /role-specific:pinepods
 
+  # role-specific:piu_tracker
+  - |-
+    {{ ({'name': (piu_tracker_identifier + '.service'), 'priority': 2000, 'restart_necessary': (piu_tracker_restart_necessary | bool), 'groups': ['mash', 'piu-tracker']} if piu_tracker_enabled else omit) }}
+  # /role-specific:piu_tracker
+
   # role-specific:plausible
   - |-
     {{ ({'name': (plausible_identifier + '.service'), 'priority': 2000, 'restart_necessary': (plausible_restart_necessary | bool), 'groups': ['mash', 'plausible']} if plausible_enabled else omit) }}
@@ -13546,6 +13551,13 @@ peertube_container_additional_networks_auto: |
 peertube_container_labels_traefik_enabled: "{{ mash_playbook_traefik_labels_enabled }}"
 peertube_container_labels_traefik_docker_network: "{{ mash_playbook_reverse_proxyable_services_additional_network }}"
 
+peertube_environment_variable_open_telemetry_metrics_enabled: "{{ mash_playbook_metrics_exposure_enabled }}"
+peertube_container_labels_traefik_metrics_enabled: "{{ mash_playbook_metrics_exposure_enabled }}"
+peertube_container_labels_traefik_metrics_hostname: "{{ mash_playbook_metrics_exposure_hostname }}"
+peertube_container_labels_traefik_metrics_path_prefix: "{{ mash_playbook_metrics_exposure_path_prefix }}/{{ peertube_identifier }}"
+peertube_container_labels_traefik_metrics_middleware_basic_auth_enabled: "{{ mash_playbook_metrics_exposure_http_basic_auth_enabled }}"
+peertube_container_labels_traefik_metrics_middleware_basic_auth_users: "{{ mash_playbook_metrics_exposure_http_basic_auth_users }}"
+
 # role-specific:exim_relay
 peertube_config_smtp_hostname: "{{ exim_relay_identifier if exim_relay_enabled else '' }}"
 peertube_config_smtp_port: "{{ 8025 if exim_relay_enabled else '' }}"
@@ -13772,6 +13784,44 @@ pinepods_container_labels_traefik_tls_certResolver: "{{ traefik_certResolver_pri
 #                                                                      #
 ########################################################################
 # /role-specific:pinepods
+
+
+
+# role-specific:piu_tracker
+########################################################################
+#                                                                      #
+# piu-tracker                                                          #
+#                                                                      #
+########################################################################
+
+piu_tracker_enabled: false
+
+piu_tracker_identifier: "{{ mash_playbook_service_identifier_prefix }}piu-tracker"
+
+piu_tracker_base_path: "{{ mash_playbook_base_path }}/{{ mash_playbook_service_base_directory_name_prefix }}piu-tracker"
+
+piu_tracker_uid: "{{ mash_playbook_uid }}"
+piu_tracker_gid: "{{ mash_playbook_gid }}"
+
+piu_tracker_container_additional_networks_auto: |
+  {{
+    ([mash_playbook_reverse_proxyable_services_additional_network] if mash_playbook_reverse_proxyable_services_additional_network else [])
+  }}
+
+piu_tracker_container_labels_traefik_enabled: "{{ mash_playbook_traefik_labels_enabled }}"
+piu_tracker_container_labels_traefik_docker_network: "{{ mash_playbook_reverse_proxyable_services_additional_network }}"
+
+# role-specific:traefik
+piu_tracker_container_labels_traefik_entrypoints: "{{ traefik_entrypoint_primary }}"
+piu_tracker_container_labels_traefik_tls_certResolver: "{{ traefik_certResolver_primary }}"
+# /role-specific:traefik
+
+########################################################################
+#                                                                      #
+# /piu-tracker                                                         #
+#                                                                      #
+########################################################################
+# /role-specific:piu_tracker
 
 
 
