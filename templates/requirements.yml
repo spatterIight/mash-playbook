@@ -49,7 +49,7 @@
   name: audiobookshelf
   activation_prefix: audiobookshelf_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-authelia.git
-  version: v4.39.28-1
+  version: v4.39.28-2
   name: authelia
   activation_prefix: authelia_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-authentik.git
@@ -745,7 +745,7 @@
   name: piu_tracker
   activation_prefix: piu_tracker_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-plausible.git
-  version: v3.2.1-6
+  version: v3.2.1-7
   name: plausible
   activation_prefix: plausible_
 - src: git+https://github.com/devture/com.devture.ansible.role.playbook_help.git
@@ -828,6 +828,10 @@
   version: v5.2.4-1
   name: qbittorrent
   activation_prefix: qbittorrent_
+- src: git+https://github.com/mother-of-all-self-hosting/ansible-role-qui.git
+  version: v1.32.0-0
+  name: qui
+  activation_prefix: qui_
 - src: git+https://iris.radicle.network/z3PCtuwyz2HdHeKnHCefR253rpYwp.git
   version: v4.3.6-0
   name: rabbitmq

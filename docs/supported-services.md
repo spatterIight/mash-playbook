@@ -221,6 +221,7 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [PruneMate](https://github.com/anoniemerd/PruneMate) | Automatically clean up Docker resources on a schedule | [Link](services/prunemate.md) |
 | [pump-it-up-tracker](https://github.com/spatterIight/pump-it-up-tracker) | Read-only web app for personal [Pump It Up](https://www.piugame.com/) score tracking | [Link](services/piu-tracker.md) |
 | [qBittorrent](https://www.qbittorrent.org/) | A BitTorrent client | [Link](services/qbittorrent.md) |
+| [qui](https://getqui.com/) | A fast, modern web interface for qBittorrent | [Link](services/qui.md) |
 | [RabbitMQ](https://www.rabbitmq.com/) | Message-broker which supports AMQP, STOMP, MQTT, etc. | [Link](services/rabbitmq.md) |
 | [Radarr](https://radarr.video/) | A movie organizer/manager for Usenet and BitTorrent users | [Link](services/radarr.md) |
 | [Radicale](https://radicale.org/) | A CalDAV and CardDAV Server (solution for hosting contacts and calendars) | [Link](services/radicale.md) |
