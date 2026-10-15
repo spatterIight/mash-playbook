@@ -73,7 +73,7 @@
   name: barassistant
   activation_prefix: barassistant_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-bazarr.git
-  version: v1.6.2-0
+  version: v1.6.2-1
   name: bazarr
   activation_prefix: bazarr_
 - src: git+https://iris.radicle.network/z2bgVhWju6shYSwtdKb7v3eoSL1Pt.git
@@ -833,7 +833,7 @@
   name: qbittorrent
   activation_prefix: qbittorrent_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-qui.git
-  version: v1.32.0-0
+  version: v1.32.0-1
   name: qui
   activation_prefix: qui_
 - src: git+https://iris.radicle.network/z3PCtuwyz2HdHeKnHCefR253rpYwp.git
@@ -841,7 +841,7 @@
   name: rabbitmq
   activation_prefix: rabbitmq_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-radarr.git
-  version: v6.4.4-4
+  version: v6.4.4-5
   name: radarr
   activation_prefix: radarr_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-radicale.git
@@ -945,7 +945,7 @@
   name: solidinvoice
   activation_prefix: solidinvoice_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-sonarr.git
-  version: v4.0.20-4
+  version: v4.0.20-5
   name: sonarr
   activation_prefix: sonarr_
 - src: git+https://iris.radicle.network/z381JyLARWwSiZnYotVXehYcQEw7u.git
