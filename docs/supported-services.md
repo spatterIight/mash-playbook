@@ -47,12 +47,13 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Bar Assistant](https://github.com/karlomikus/bar-assistant/) | Managing cocktail recipes at your home bar with cocktail-oriented features | [Link](services/barassistant.md) |
 | [Bazarr](https://www.bazarr.media/) | Companion application to Sonarr and Radarr that manages and downloads subtitles | [Link](services/bazarr.md) |
 | [BentoPDF](https://github.com/alam00000/bentopdf) | Client-side PDF editor and converter | [Link](services/bentopdf.md) |
+| [Beszel hub](https://beszel.dev/) | Lightweight server monitoring hub with historical data, Docker stats and alerts | [Link](services/beszel-hub.md) |
 | [Bichon](https://github.com/rustmailer/bichon) | Email archiving server with full-text search function | [Link](services/bichon.md) |
 | [BIND](https://www.isc.org/bind/) | A full-featured DNS server | [Link](services/bind.md) |
 | [bitmagnet](https://bitmagnet.io/) | BitTorrent indexer, DHT crawler, content classifier and search engine | [Link](services/bitmagnet.md) |
 | [BookStack](https://www.bookstackapp.com) | Information organizer and storage | [Link](services/bookstack.md) |
 | [BorgBackup](https://www.borgbackup.org/) (via [borgmatic](https://torsion.org/borgmatic/)) | A deduplicating backup program with optional compression and encryption | [Link](services/backup-borg.md) |
-| [Borg Web UI](https://github.com/karanhudia/borg-ui) | Unofficial web interface for BorgBackup | [Link](services/borg-ui.md) |
+| [Borg UI](https://github.com/karanhudia/borg-ui) | Unofficial web interface for BorgBackup | [Link](services/borg-ui.md) |
 | [Calibre-Web](https://github.com/janeczku/calibre-web) | Web app for browsing, reading and downloading eBooks stored in a [Calibre](https://calibre-ebook.com/) database | [Link](services/calibre-web.md) |
 | [Calibre-Web Automated](https://github.com/crocodilestick/Calibre-Web-Automated) | Web application based on [Calibre-Web](https://github.com/janeczku/calibre-web) with additional features and automation | [Link](services/calibre-web-automated.md) |
 | [Cap Standalone](https://capjs.js.org/guide/standalone/) | Backend of Cap, a POW Captcha | [Link](services/cap.md) |

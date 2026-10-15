@@ -68,15 +68,15 @@ LibreBooking requires a MySQL-compatible database to work. This playbook support
 
 Refer to [this page](mariadb.md) for the instruction about how to enable it.
 
-### Set a string for protecting setup wizard
+### Set a random string
 
-You also have to set a string used for protecting the `/Web/install/` setup wizard. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-librebooking/blob/main/docs/configuring-librebooking.md#set-a-string-for-protecting-setup-wizard) on the role's documentation for details.
+You also have to set a random string used for protecting the setup wizard. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-librebooking/blob/main/docs/configuring-librebooking.md#set-a-string-for-protecting-setup-wizard) on the role's documentation for details.
 
 ## Usage
 
 After running the command for installation, the LibreBooking instance becomes available at the URL specified with `librebooking_hostname`. With the configuration above, the service is hosted at `https://librebooking.example.com`.
 
-To get started, open the URL with a web browser, and follow the set up wizard. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-librebooking/blob/main/docs/configuring-librebooking.md#usage) on the role's documentation for details.
+To get started, open the URL with a web browser, and follow the set up wizard. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-librebooking/blob/main/docs/configuring-librebooking.md#usage) on the role's documentation for details about the usage.
 
 ## Troubleshooting
 
