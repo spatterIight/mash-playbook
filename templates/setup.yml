@@ -866,6 +866,10 @@
     - role: galaxy/promtail
     # /role-specific:promtail
 
+    # role-specific:prowlarr
+    - role: galaxy/prowlarr
+    # /role-specific:prowlarr
+
     # role-specific:prunemate
     - role: galaxy/prunemate
     # /role-specific:prunemate
@@ -1065,6 +1069,10 @@
     # role-specific:typesense
     - role: galaxy/typesense
     # /role-specific:typesense
+
+    # role-specific:unpackerr
+    - role: galaxy/unpackerr
+    # /role-specific:unpackerr
 
     # role-specific:uptime_kuma
     - role: galaxy/uptime_kuma

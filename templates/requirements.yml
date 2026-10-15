@@ -313,7 +313,7 @@
   name: focalboard
   activation_prefix: focalboard_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-forgejo.git
-  version: v16.0.6-0
+  version: v17.0.0-0
   name: forgejo
   activation_prefix: forgejo_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-forgejo-runner.git
@@ -481,7 +481,7 @@
   name: librebooking
   activation_prefix: librebooking_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-lidarr.git
-  version: v3.1.0.4875-4
+  version: v3.1.0.4875-5
   name: lidarr
   activation_prefix: lidarr_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-limesurvey.git
@@ -820,6 +820,10 @@
   version: v3.6.11-3
   name: promtail
   activation_prefix: promtail_
+- src: git+https://github.com/mother-of-all-self-hosting/ansible-role-prowlarr.git
+  version: v2.6.5-0
+  name: prowlarr
+  activation_prefix: prowlarr_
 - src: git+https://iris.radicle.network/zTsddBnXnhE3i4xhzsEX12deb4fx.git
   version: v1.3.3-4
   name: prunemate
@@ -1044,6 +1048,10 @@
   version: v30.2-2
   name: typesense
   activation_prefix: typesense_
+- src: git+https://github.com/mother-of-all-self-hosting/ansible-role-unpackerr.git
+  version: v0.16.1-0
+  name: unpackerr
+  activation_prefix: unpackerr_
 - src: git+https://github.com/mother-of-all-self-hosting/ansible-role-uptime_kuma.git
   version: v2.5.6-0
   name: uptime_kuma

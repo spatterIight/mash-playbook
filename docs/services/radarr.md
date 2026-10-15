@@ -56,7 +56,7 @@ To get started, open the URL with a web browser to create an account.
 
 ## Related services
 
-- "* Arr" applications — [Autobrr](autobrr.md) / [Homarr](homarr.md) / [Sonarr](sonarr.md)
+- "* Arr" applications — [Autobrr](autobrr.md) / [Homarr](homarr.md) / [Prowlarr](prowlarr.md) / [Sonarr](sonarr.md)
 - [Jackett](jackett.md)
   - For Jackett integration instructions, refer to the [setup guide](https://github.com/mother-of-all-self-hosting/ansible-role-jackett/blob/main/docs/configuring-jackett.md#integration-with-sonarrradarr) on the role's documentation
 - [Jellyfin](jellyfin.md)
@@ -64,3 +64,4 @@ To get started, open the URL with a web browser to create an account.
 - [Plex](plex.md)
 - [qBittorrent](qbittorrent.md)
   - For qBittorrent integration instructions, refer to the [setup guide](https://github.com/mother-of-all-self-hosting/ansible-role-qbittorrent/blob/main/docs/configuring-qbittorrent.md#integration-with-sonarrradarr) on the role's documentation
+- [Unpackerr](unpackerr.md)
