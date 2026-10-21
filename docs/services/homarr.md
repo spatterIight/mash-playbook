@@ -34,12 +34,9 @@ For details about configuring the [Ansible role for Homarr](https://github.com/m
 
 This service requires the following other services:
 
+- [Postgres](postgres.md) / [SQLite](https://www.sqlite.org/) database
 - [Traefik](traefik.md) reverse-proxy server
 - (optional) [ntfy](ntfy.md)
-- (optional) [Postgres](postgres.md) / MySQL database — Homarr will default to [SQLite](https://www.sqlite.org/) if Postgres is not enabled
-
->[!NOTE]
-> Currently (as of v1.35.0) MariaDB is not supported but planned. Refer to [this issue at GitHub](https://github.com/homarr-labs/homarr/issues/2305) for the latest information.
 
 ## Configuration
 
@@ -76,9 +73,12 @@ homarr_environment_variables_secret_encryption_key: YOUR_SECRET_KEY_HERE
 >[!NOTE]
 > Other type of values such as one generated with `pwgen -s 64 1` does not work.
 
-### Select database to use (optional)
+### Select database to use
 
-By default Homarr is configured to use Postgres, but you can choose other database such as SQLite and MySQL. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-homarr/blob/main/docs/configuring-homarr.md#specify-database-optional) on the role's documentation for details.
+Homarr can use Postgres or SQLite, and you need to choose one. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-homarr/blob/main/docs/configuring-homarr.md#specify-database) on the role's documentation for details.
+
+>[!NOTE]
+> If you have not disabled Postgres explicitly with this playbook, the database for your existing installation is most likely to be `postgres`.
 
 ## Usage
 
@@ -92,13 +92,16 @@ On Homarr's board it is possible to create and add icons of many services, inclu
 
 Homarr also integrates with various software, to which you can connect your applications to interact via widgets. Here is a list of integrations which are also available on this playbook:
 
-- **Torrent client**: [qBittorent](qbittorrent.md)
-- **Media server**: [Plex](plex.md)
-- **Media collection managers**: [Sonarr](sonarr.md) and [Radarr](radarr.md)
-- **Media request manager**: [Seerr](seerr.md)
-- **DNS ad-blocker**: [AdGuard Home](adguard-home.md)
+| Category | Service |
+| ---------- | -------- |
+| Bookmark | [Karakeep](karakeep.md), [Linkwarden](linkwarden.md) |
+| Indexer | [Jackett](jackett.md), [Prowlarr](prowlarr.md) |
+| Media | [audiobookshelf](audiobookshelf.md), [Bazarr](bazarr.md), [Immich](immich.md), [Jellyfin](jellyfin.md), [Lidarr](lidarr.md), [Navidrome](navidrome.md), [Plex](plex.md), [Radarr](radarr.md), [Seerr](seerr.md), [Sonarr](sonarr.md) |
+| Monitoring | [Beszel](beszel-hub.md), [Changedetection.io](changedetection.md), [Prometheus](prometheus.md), [Uptime Kuma](uptime-kuma.md) |
+| Notification | [Gotify](gotify.md), [Nextcloud](nextcloud.md), [ntfy](ntfy.md) |
+| Misc | [AdGuard Home](adguard-home.md), [Autobrr](autobrr.md), [Miniflux](miniflux.md), [Paperless-ngx](paperless-ngx.md), [qBittorrent](qbittorrent.md), [Syncthing](syncthing.md), [Tandoor](tandoor.md), [Wazuh](wazuh.md) |
 
-Refer to [this page](https://homarr.dev/docs/category/integrations) on the official documentation for the latest information about integrations.
+Refer to [this page](https://homarr.dev/docs/integrations/) on the official documentation for the latest information about integrations.
 
 ## Troubleshooting
 
@@ -106,5 +109,4 @@ Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-ro
 
 ## Related services
 
-- "* Arr" applications — [Autobrr](autobrr.md) / [Radarr](radarr.md) / [Seerr](seerr.md) / [Sonarr](sonarr.md)
 - [Heimdall](heimdall.md) — Dashboard for web applications

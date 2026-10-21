@@ -12,6 +12,8 @@ SPDX-FileCopyrightText: 2023 Antonis Christofides
 SPDX-FileCopyrightText: 2023 Felix Stupp
 SPDX-FileCopyrightText: 2023 Julian-Samuel Gebühr
 SPDX-FileCopyrightText: 2023 Pierre 'McFly' Marty
+SPDX-FileCopyrightText: 2024 Thomas Miceli
+SPDX-FileCopyrightText: 2024 Tiz
 SPDX-FileCopyrightText: 2024-2026 Suguru Hirahara
 
 SPDX-License-Identifier: AGPL-3.0-or-later
@@ -79,7 +81,7 @@ You also need to specify the base domain that session cookies related to authent
 
 ### Select database to use
 
-It is necessary to select a database used by Authelia from a MySQL compatible database, Postgres, and SQLite. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-authelia/blob/main/docs/configuring-authelia.md#configuring-database) on the role's documentation for details.
+Authelia can use a MySQL compatible database, Postgres, or SQLite, and you need to choose one. Refer to [this section](https://github.com/mother-of-all-self-hosting/ansible-role-authelia/blob/main/docs/configuring-authelia.md#configuring-database) on the role's documentation for details.
 
 >[!NOTE]
 > If you have neither enabled MariaDB or disabled Postgres explicitly with this playbook, the database for your existing installation is most likely to be `postgres`.
@@ -270,6 +272,43 @@ authelia_systemd_required_services_list_custom:
 ```
 
 Running the installation command will create the shared Valkey instance named `mash-valkey`.
+
+### Integrating with Prometheus (optional)
+
+Authelia can natively expose metrics to [Prometheus](prometheus.md).
+
+#### Expose metrics internally
+
+If Authelia and Prometheus do not share a network (like Traefik), you can connect the Authelia container network to Prometheus by adding the following configuration to your `vars.yml` file:
+
+```yaml
+prometheus_container_additional_networks_custom:
+  - "{{ authelia_container_network }}"
+```
+
+#### Expose metrics publicly
+
+If Authelia metrics are not scraped from a local Prometheus instance, you can expose the metrics publicly so that a remote instance can fetch them.
+
+When exposing metrics publicly, you should consider to set up [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) **or anyone would be able to read your metrics**.
+
+To expose the metrics publicly, add the following configuration to your `vars.yml` file (adapt to your needs):
+
+```yaml
+mash_playbook_metrics_exposure_enabled: true
+mash_playbook_metrics_exposure_hostname: mash.example.com
+```
+
+It will expose the metrics at `https://mash.example.com/metrics/mash-authelia`.
+
+To enable the HTTP Basic authentication, add the following configuration to your `vars.yml` file (adapt to your needs):
+
+```yaml
+authelia_container_labels_traefik_metrics_middleware_basic_auth_enabled: true
+
+# See https://doc.traefik.io/traefik/middlewares/http/basicauth/#users for details.
+authelia_container_labels_traefik_metrics_middleware_basic_auth_users: ""
+```
 
 ## Installation
 

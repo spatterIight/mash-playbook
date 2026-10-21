@@ -65,7 +65,10 @@ pdfding_hostname: pdfding.example.com
 
 ### Select database to use
 
-It is necessary to select a database used by the service from Postgres and SQLite. Refer to [this section](https://radicle.network/nodes/iris.radicle.network/rad%3Az2cZCZP8Mu4LYMbHKaTdnP1otc46L/tree/docs/configuring-pdfding.md#specify-database) on the role's documentation for details.
+The service can use either Postgres or SQLite, and you need to choose one. Refer to [this section](https://radicle.network/nodes/iris.radicle.network/rad%3Az2cZCZP8Mu4LYMbHKaTdnP1otc46L/tree/docs/configuring-pdfding.md#specify-database) on the role's documentation for details.
+
+>[!NOTE]
+> If you have not disabled Postgres explicitly with this playbook, the database for your existing installation is most likely to be `postgres`.
 
 ### Enabling signing up
 

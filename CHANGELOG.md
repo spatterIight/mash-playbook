@@ -1,3 +1,27 @@
+# 2026-10-20
+
+## FMD Server 0.17: back up before upgrading
+
+This affects existing FMD Server installations. Before rerunning the playbook, follow the [upstream upgrade precautions](https://fmd-foss.org/blog/2026/09/18/api-v2/#what-changes-for-server-operators): back up the SQLite database and test the upgrade and user-facing functionality in a staging environment. For a consistent file backup, stop FMD Server and copy its database directory (`fmd_server_database_path`, normally `/mash/findmydeviceserver/database`). The role does not make this backup or issue a validation error reminding you to do so.
+
+The API and encryption rewrite remains backward compatible with existing accounts and clients. Account migration to API v2 is available through the Android app; it is not required for this server upgrade.
+
+## Homarr v2 requires a backup before upgrading
+
+This affects existing Homarr v1 installations. Before rerunning the playbook, stop Homarr and back up its data directory (`homarr_data_path`, normally `/mash/homarr/data`) and, if you use Postgres for it, its Postgres database. The first v2 start migrates the database in place, and Homarr v1 cannot use the migrated database, so rolling back requires restoring the backup. The role neither makes the backup nor stops with a validation error to remind you.
+
+Homarr v2 no longer supports MySQL (and MariaDB). If you have set `homarr_database_type: mysql`, the role stops with an error: before upgrading, convert the database to SQLite while still on Homarr v1.77 (the version the playbook installed until now) by following the [upstream migration guide](https://homarr.dev/docs/advanced/mysql-to-sqlite), then set `homarr_database_type: sqlite`.
+
+Refer to the [upstream release notes](https://github.com/homarr-labs/homarr/releases/tag/v2.0.0) for other application changes.
+
+# 2026-10-18
+
+## `just start-all` and `just start-group` restart all targeted services again
+
+Since [conditional service restart](#conditional-service-restart-for-install--commands) was introduced, it also applied to runs with only start or restart tags. As more roles began tracking their own changes, these commands stopped restarting most services and only started those that were stopped.
+
+Conditional restart now applies only when an `install-*` tag is selected and no `setup-*` tag. `just install-all` and `just install-service` are unchanged. `just start-all`, `just start-group` and other runs with only start or restart tags restart all their targeted services again, so they briefly interrupt running services. To keep the previous behavior for such a run, add `--extra-vars='devture_systemd_service_manager_conditional_restart_enabled=true'`.
+
 # 2026-10-15
 
 ## Uptime Kuma v2 requires a backup before upgrading
