@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2026-10-30
+
+### Woodpecker CI's directories moved
+
+Woodpecker CI's server and agent directories moved from `/mash/woodpecker-ci/server` and `/mash/woodpecker-ci/agent` to `/mash/woodpecker-ci-server` and `/mash/woodpecker-ci-agent`. Their shared parent directory was owned by the `mash` user, who could rename the agent's directory (now owned by root) and put another in its place.
+
+The next playbook run moves the server's directory, recreates the agent's, and deletes the old parent once it is empty. If you set `woodpecker_ci_server_base_path` or `woodpecker_ci_agent_base_path` in your `vars.yml`, your paths are left alone. To skip the migration, set `mash_playbook_migration_woodpecker_ci_paths_migration_enabled: false` (not recommended).
+
+### The base directory (`/mash`) is now owned by root
+
+The playbook now makes the base directory (`mash_playbook_base_path`, `/mash` by default) owned by `root`, with the `mash` group and the same mode (`0750`). Previously it was owned by the `mash` user.
+
+Whoever owns this directory can rename any service's directory in it, even one owned by root, and put another in its place. A service that runs something as root from its directory relies on this not being possible.
+
+Nothing changes for you: the services' own directories keep their owners, and the `mash` user can still reach them through the group. The next playbook run changes the owner. To keep the old owner, set `mash_playbook_base_path_uid: "{{ mash_playbook_uid }}"` in your `vars.yml` (not recommended).
+
 ## 2026-10-25
 
 ### The playbook's wiring moved from `templates/` to `components/`
@@ -107,17 +123,45 @@ If you used it, clone the playbook and run it with your own Ansible, or with the
 
 This affects users with Jellyfin enabled. Before rerunning the playbook, stop Jellyfin and make a full backup of its data and configuration. Check for usernames that differ only by capitalization, and remove third-party plugins until versions compatible with Jellyfin 12 are available. After the upgrade, run a full library scan; let the database migrations and first scan finish without interruption. The database changes cannot be rolled back without restoring a backup. See the [Jellyfin 12 release notes](https://jellyfin.org/posts/jellyfin-release-12.0/) for details.
 
+## 2026-08-25
+
+### APISIX Dashboard support removed
+
+This only affects you if you have the standalone APISIX Dashboard (`apisix_dashboard_*` variables) enabled.
+
+Upstream no longer ships the APISIX Dashboard as a service of its own: it is now served by APISIX itself (since 3.13), at `/ui/` on its Admin API port. Its last standalone release (3.0.1, from March 2023) was only meant for APISIX 3.0. The role that installed it ([ansible-role-apisix-dashboard](https://github.com/mother-of-all-self-hosting/ansible-role-apisix-dashboard)) has been deprecated.
+
+You don't need to install anything to use the bundled dashboard. Making it reachable makes the Admin API reachable, and the bundled dashboard has no login of its own, so see [the APISIX role's documentation](https://github.com/mother-of-all-self-hosting/ansible-role-apisix/blob/main/docs/configuring-apisix.md#configuring-the-bundled-dashboard-web-ui) for the safe ways to reach it.
+
+Remove the `apisix_dashboard_*` variables from your `vars.yml`, and uninstall the standalone dashboard manually, by running these commands on your server:
+
+```sh
+systemctl disable --now mash-apisix-dashboard.service
+
+rm -rf /mash/apisix-dashboard
+```
+
+If you were [running multiple instances of the APISIX Dashboard service](docs/running-multiple-instances.md), repeat the commands for each instance's service name and base path. Your APISIX configuration (routes, upstreams, etc.) is stored in [etcd](components/etcd/README.md), and is not affected.
+
 ## 2026-08-24
 
 ### (Backward Compatibility Break) KeyDB support removed
 
-This only affects you if you have [KeyDB](docs/removed-services/keydb.md) enabled.
+This only affects you if you have KeyDB enabled.
 
 KeyDB has been removed from the playbook, because the KeyDB project has been unmaintained since 2023 — its last release (6.3.4) dates from then. The role that installed it ([ansible-role-keydb](https://github.com/mother-of-all-self-hosting/ansible-role-keydb)) has been deprecated.
 
 [Valkey](components/valkey/README.md) — also a Redis fork, protocol-compatible with KeyDB — is a well-maintained alternative and has been the playbook's recommendation since 2024-11-23. Point services that used your KeyDB instance at a Valkey instance instead.
 
-The playbook will complain about any remaining `keydb_*` variables in your configuration. Uninstalling the service from your server is a manual step — refer to [the KeyDB page](docs/removed-services/keydb.md) for the commands.
+The playbook will complain about any remaining `keydb_*` variables in your configuration. Remove them, and uninstall the service from your server manually, by running these commands on it:
+
+```sh
+systemctl disable --now mash-keydb.service
+
+rm -rf /mash/keydb
+```
+
+If you were [running multiple instances of the KeyDB service](docs/running-multiple-instances.md), repeat the commands for each instance's service name and base path.
 
 ## 2026-08-20
 
@@ -170,7 +214,15 @@ Users with the `admin` role get access to all topics. Others start with no acces
 
 [Firezone](https://www.firezone.dev/) has been removed from the playbook, as the role to install it ([ansible-role-firezone](https://github.com/mother-of-all-self-hosting/ansible-role-firezone)) was deprecated in favor of [ansible-role-wg-easy](https://github.com/mother-of-all-self-hosting/ansible-role-wg-easy). The deprecated role was configured to install the legacy 0.7 version, which has reached end-of-life status and stopped receiving updates since January 31st, 2024.
 
-The playbook will let you know if you're using any `firezone_*` variables. You'll need to remove them from `vars.yml` and potentially [uninstall the service manually](docs/removed-services/firezone.md#uninstalling-the-service-manually).
+The playbook will let you know if you're using any `firezone_*` variables. You'll need to remove them from `vars.yml`. If you still have Firezone installed on your server, uninstall it manually, by running these commands on it:
+
+```sh
+systemctl disable --now mash-firezone.service
+
+rm -rf /mash/firezone
+
+/mash/postgres/bin/cli-non-interactive -c 'DROP DATABASE firezone;'
+```
 
 If you have deployed Firezone, you might be interested in having a look at [WireGuard Easy](components/wg_easy/README.md).
 
@@ -444,7 +496,7 @@ As the role is pretty young and to avoid confusion because of legacy and reverte
 
 ### (Backward Compatibility Break) Firezone database renamed
 
-If you are running [Firezone](docs/removed-services/firezone.md) with the default [Postgres](components/postgres/README.md) integration the playbook automatically created the database with the name `mash-firezone`.
+If you are running Firezone with the default [Postgres](components/postgres/README.md) integration the playbook automatically created the database with the name `mash-firezone`.
 To be consistent with how this playbook names databases for all other services, going forward we've changed the database name to be just `firezone`. You will have to rename you database manually by running the following commands on your server:
 
 1. Stop Firezone: `systemctl stop mash-firezone`
@@ -500,3 +552,28 @@ Our [example vars.yml](examples/vars.yml) file has been updated, so that new hos
 ### Initial release
 
 This is the initial release of this playbook.
+
+#### Why create such a mega playbook?
+
+We used to maintain separate playbooks for various services ([Matrix](https://github.com/spantaleev/matrix-docker-ansible-deploy), [Nextcloud](https://github.com/spantaleev/nextcloud-docker-ansible-deploy), [Gitea](https://github.com/spantaleev/gitea-docker-ansible-deploy), [Gitlab](https://github.com/spantaleev/gitlab-docker-ansible-deploy), [Vaultwarden](https://github.com/spantaleev/vaultwarden-docker-ansible-deploy), [PeerTube](https://github.com/spantaleev/peertube-docker-ansible-deploy), ..). They re-used Ansible roles (for [Postgres](https://github.com/devture/com.devture.ansible.role.postgres), [Traefik](https://github.com/devture/com.devture.ansible.role.traefik), etc.), but were still hard to maintain due to the large duplication of effort.
+
+Most of these playbooks hosted services which require a Postgres database, a Traefik reverse-proxy, a backup solution, etc. All of them needed to come with documentation, etc. All these things need to be created and kept up-to-date in each and every playbook.
+
+Having to use a dedicated Ansible playbook for each and every piece of software means that you have to juggle many playbooks and make sure they don't conflict with one another when installing services on the same server. All these related playbooks interoperated nicely, but still required at least a bit of manual configuration to achieve this interoperability.
+
+Using specialized Ansible playbooks also means that trying out new software is difficult. Despite the playbooks being similar (which eases the learning curve), each one is still a new git repository you need to clone and maintain, etc.
+
+Furthermore, not all pieces of software are large enough to justify having their own dedicated Ansible playbook. They have no home, so no one uses them.
+
+We're finding the need for a playbook which combines all of this into one, so that:
+
+- you don't need to juggle multiple Ansible playbooks
+- you can try out various services easily - a few lines of extra configuration and you're ready to go
+- small pieces of software (like [Miniflux](https://miniflux.app/), powered by the [miniflux](https://github.com/mother-of-all-self-hosting/ansible-role-miniflux) Ansible role) which don't have their own playbook can finally find a home
+- you can use a single playbook with the quality you know and trust
+- shared services (like Postgres) are maintained in one single place
+- backups are made easy, because everything lives together (same base data path, same Postgres instance)
+
+Having one large playbook with all services does not necessarily mean you need to host everything on the same server though. Feel free to use as many servers as you see fit. While containers provide some level of isolation, it's still better to not put all your eggs in one basket and create a single point of failure.
+
+All of the aforementioned playbooks have been absorbed into this one. See the [full list of supported services here](docs/supported-services.md). The [Matrix playbook](https://github.com/spantaleev/matrix-docker-ansible-deploy) will remain separate, because it contains a huge number of components and will likely grow even more. It deserves to stand on its own.
