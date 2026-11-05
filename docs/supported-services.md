@@ -55,7 +55,7 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Borg UI](https://github.com/karanhudia/borg-ui) | Unofficial web interface for BorgBackup | [Link](../components/borg_ui/README.md) |
 | [Calibre-Web](https://github.com/janeczku/calibre-web) | Web app for browsing, reading and downloading eBooks stored in a [Calibre](https://calibre-ebook.com/) database | [Link](../components/calibre_web/README.md) |
 | [Calibre-Web Automated](https://github.com/crocodilestick/Calibre-Web-Automated) | Web application based on [Calibre-Web](https://github.com/janeczku/calibre-web) with additional features and automation | [Link](../components/calibre_web_automated/README.md) |
-| [Cap Standalone](https://capjs.js.org/guide/standalone/) | Backend of Cap, a POW Captcha | [Link](../components/cap/README.md) |
+| [Cap Standalone](https://trycap.dev/guide/standalone/) | Backend of Cap, a POW Captcha | [Link](../components/cap/README.md) |
 | [Changedetection.io](https://github.com/dgtlmoon/changedetection.io) | Website change detection and restock monitoring service | [Link](../components/changedetection/README.md) |
 | [ChiefOnboarding](https://docs.chiefonboarding.com) | Employee onboarding platform | [Link](../components/chiefonboarding/README.md) |
 | [Cinny](https://github.com/ajbura/cinny) | Web client for [Matrix](https://matrix.org/) | [Link](../components/cinny/README.md) |
@@ -263,10 +263,12 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Syncthing](https://syncthing.net/) | A continuous file synchronization program which synchronizes files between two or more computers in real time | [Link](../components/syncthing/README.md) |
 | [Tandoor](https://docs.tandoor.dev/) | The recipe manager that allows you to manage your ever growing collection of digital recipes | [Link](../components/tandoor/README.md) |
 | [Tasks.md](https://hub.docker.com/r/baldissaramatheus/tasks.md) | Markdown file-based task management board | [Link](../components/tasksmd/README.md) |
+| [Tautulli](https://tautulli.com/) | A monitoring and tracking tool for Plex Media Server | [Link](../components/tautulli/README.md) |
 | [Teable](https://github.com/teableio/teable) | Database management platform with spreadsheet-like interface | [Link](../components/teable/README.md) |
 | [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) | A server agent to help you collect metrics from your stacks, sensors, and systems | [Link](../components/telegraf/README.md) |
 | [Termix](https://docs.termix.site/) | Server management platform with SSH terminal | [Link](../components/termix/README.md) |
 | [The Lounge](https://thelounge.chat/) | Web IRC client with modern features, which keeps a persistent connection to IRC servers | [Link](../components/thelounge/README.md) |
+| [tinc](https://www.tinc-vpn.org/) | Mesh VPN daemon | [Link](../components/tinc/README.md) |
 | [Tinyauth](https://tinyauth.app/) | Authentication middleware that adds a login screen or OAuth with providers to Docker services | [Link](../components/tinyauth/README.md) |
 | [Traefik](https://doc.traefik.io/traefik/) | A container-aware reverse-proxy server | [Link](../components/traefik/README.md) |
 | [traefik-certs-dumper](https://github.com/ldez/traefik-certs-dumper) | Dump ACME data from Traefik to certificates | [Link](../components/traefik_certs_dumper/README.md) |
