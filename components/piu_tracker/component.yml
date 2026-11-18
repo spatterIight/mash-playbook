@@ -1,5 +1,6 @@
 ---
 
+description: A score tracker for Pump It Up
 activation_prefix: piu_tracker_
 
 # Entries added to other components' lists, while those components are in use
