@@ -204,10 +204,12 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [OxiTraffic](https://codeberg.org/mo8it/oxitraffic) | Simple and privacy respecting website traffic tracker | [Link](../components/oxitraffic/README.md) |
 | [Paperless-ngx](https://paperless-ngx.com) | Document management system with a searchable online archive | [Link](../components/paperless/README.md) |
 | [Papra](https://github.com/papra-hq/papra) | Document management and archiving platform | [Link](../components/papra/README.md) |
+| [ParadeDB](https://github.com/paradedb/paradedb) | PostgreSQL server bundled with an extension for full-text and vector search | [Link](../components/paradedb/README.md) |
 | [Passbolt](https://www.passbolt.com/) | An open source password manager for teams | [Link](../components/passbolt/README.md) |
 | [PdfDing](https://www.pdfding.com/) | PDF manager, viewer and editor | [Link](../components/pdfding/README.md) |
 | [PeerTube](https://joinpeertube.org/) | ActivityPub federated video platform | [Link](../components/peertube/README.md) |
 | [pgAdmin](https://www.pgadmin.org/) | Web-based Postgres database server administration software | [Link](../components/pgadmin/README.md) |
+| [PgHero](https://github.com/ankane/pghero) | Performance dashboard for Postgres | [Link](../components/pghero/README.md) |
 | [phpMyAdmin](https://www.phpmyadmin.net/) | Web-based MySQL or MariaDB database server administration software | [Link](../components/phpmyadmin/README.md) |
 | [Pi-hole](https://pi-hole.net/) | A DNS sinkhole which blocks ads and trackers network-wide | [Link](../components/pihole/README.md) |
 | [PinePods](https://www.pinepods.online/) | Multi-user podcast management system | [Link](../components/pinepods/README.md) |
@@ -268,7 +270,7 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Stirling PDF v1](https://github.com/Stirling-Tools/Stirling-PDF) | PDF converter and editor | [Link](../components/stirling_pdf/README.md) |
 | [strongSwan](https://www.strongswan.org/) | IPsec-based VPN solution | [Link](../components/strongswan/README.md) |
 | [Svix](https://github.com/svix/svix-webhooks) | Webhook service | [Link](../components/svix/README.md) |
-| [syncstorage-rs](https://github.com/mozilla-services/syncstorage-rs) | Mozilla Sync Storage server for Firefox Sync | [Link](../components/syncstorage_rs_docker/README.md) |
+| [Syncstorage-rs](https://mozilla-services.github.io/syncstorage-rs/) | Mozilla Sync Storage server for Firefox Sync | [Link](../components/syncstorage_rs/README.md) |
 | [Syncthing](https://syncthing.net/) | Continuous file synchronization between computers | [Link](../components/syncthing/README.md) |
 | [Tandoor](https://docs.tandoor.dev/) | Recipe manager | [Link](../components/tandoor/README.md) |
 | [Tasks.md](https://hub.docker.com/r/baldissaramatheus/tasks.md) | Markdown file-based task management board | [Link](../components/tasksmd/README.md) |
