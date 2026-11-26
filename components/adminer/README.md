@@ -50,8 +50,6 @@ To enable this service, add the following configuration to your `vars.yml` file 
 
 adminer_enabled: true
 
-adminer_hostname: adminer.example.com
-
 ########################################################################
 #                                                                      #
 # /adminer                                                             #
@@ -61,9 +59,16 @@ adminer_hostname: adminer.example.com
 
 It is optionally possible to edit settings about the default server to connect, plugins to load (ones for loading databases), etc. Refer to [this section](https://radicle.network/nodes/progressiv.radicle.garden/rad%3Az3px8gLDo2opjQZW7qFiLoNuk4eSu/tree/docs/configuring-adminer.md#adjusting-the-playbook-configuration) for details.
 
+### Exposing the service to the internet
+
+By default Adminer is not configured to be exposed to the internet, in order to prevent undisclosed vulnerabilities if any from being exploited. Refer to [this section](https://radicle.network/nodes/progressiv.radicle.garden/rad%3Az3px8gLDo2opjQZW7qFiLoNuk4eSu/tree/docs/configuring-adminer.md#exposing-the-service-to-the-internet-optional) on the role's documentation for details about how to expose it to the internet.
+
+>[!NOTE]
+> Since exposing the instance to the internet practically exposes the databases as well, it is important to set a proper method to restrict who can access to it, such as [two-factor authentication](https://docs.phpmyadmin.net/en/latest/two_factor.html). Protecting it with an Identity Provider (IdP) like [authentik](../authentik/README.md) is also worth considering.
+
 ## Usage
 
-After running the command for installation, the Adminer instance becomes available at the URL specified with `adminer_hostname`. With the configuration above, the service is hosted at `https://adminer.example.com`.
+After running the command for installation, the Adminer instance becomes available at the URL specified with `adminer_hostname` and `adminer_path_prefix`. With the configuration above, the service is hosted at `https://mash.example.com/adminer`.
 
 To get started, open the URL with a web browser to log in to the instance with the database's credentials specified on your `vars.yml` file.
 

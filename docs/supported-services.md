@@ -128,6 +128,7 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Homarr](https://homarr.dev/) | Dashboard for your applications and services | [Link](../components/homarr/README.md) |
 | [Hubsite](https://github.com/moan0s/hubsite) | A simple, static site that shows an overview of the available services | [Link](../components/hubsite/README.md) |
 | [I hate money](https://github.com/spiral-project/ihatemoney) | Shared budget manager | [Link](../components/ihatemoney/README.md) |
+| [I2P](https://i2p.net/) | Reference Java implementation of I2P | [Link](../components/i2p/README.md) |
 | [ILMO](https://github.com/moan0s/ILMO2) | A library management tool | [Link](../components/ilmo/README.md) |
 | [Immich](https://github.com/immich-app/immich) | High performance photo and video management solution | [Link](../components/immich/README.md) |
 | [Immich Kiosk](https://immichkiosk.app/) | Slideshow for displaying Immich pictures and videos | [Link](../components/immich_kiosk/README.md) |
@@ -148,6 +149,7 @@ Below is an exhaustive list of the free and open-source software for self-hostin
 | [Lago](https://www.getlago.com/) | Metering and usage-based billing | [Link](../components/lago/README.md) |
 | [LanguageTool](https://languagetool.org/) | An online grammar, style and spell checker | [Link](../components/languagetool/README.md) |
 | [LibreBooking](https://github.com/LibreBooking/librebooking) | Resource scheduling and booking application | [Link](../components/librebooking/README.md) |
+| [LibreSpeed](https://librespeed.org) | Speed test for measuring the connection to your server | [Link](../components/librespeed/README.md) |
 | [Lidarr](https://lidarr.audio/) | Music collection manager for Usenet and BitTorrent users | [Link](../components/lidarr/README.md) |
 | [LimeSurvey](https://www.limesurvey.org) | Web based forms and surveys | [Link](../components/limesurvey/README.md) |
 | [linkding](https://github.com/sissbruecker/linkding/) | Bookmark manager designed to be minimal and fast | [Link](../components/linkding/README.md) |
